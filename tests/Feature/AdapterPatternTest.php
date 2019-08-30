@@ -8,6 +8,7 @@ use App\Calet\Adapter\CyborgAdapter;
 use App\Calet\AdapterAnother\PenguinAdapter;
 use App\Calet\AdapterAnother\Penguin;
 use App\Calet\AdapterAnother\Pigeon;
+use App\Calet\AdapterAnother\ExPenguinAdapter;
 use Tests\TestCase;
 
 class AdapterPatternTest extends TestCase
@@ -59,6 +60,11 @@ class AdapterPatternTest extends TestCase
         dump('Penguin with Adaptor');
         $penguinAdapter->fly();
         $penguinAdapter->eat();
+
+        dump('ExPenguin Adapter');
+        $exPenguinAdapter = new ExPenguinAdapter('Jame');
+        $exPenguinAdapter->fly();
+        $exPenguinAdapter->eat();
     }
 
 }

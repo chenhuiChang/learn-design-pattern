@@ -5,7 +5,7 @@ namespace App\Calet\AdapterAnother;
 class Pigeon implements BirdInterface
 {
 
-    private $name;
+    protected $name;
 
     public function __construct($name)
     {
