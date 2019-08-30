@@ -5,6 +5,9 @@ namespace Tests\Feature;
 use App\Calet\Adapter\Cyborg;
 use App\Calet\Adapter\EvilRobot;
 use App\Calet\Adapter\CyborgAdapter;
+use App\Calet\AdapterAnother\PenguinAdapter;
+use App\Calet\AdapterAnother\Penguin;
+use App\Calet\AdapterAnother\Pigeon;
 use Tests\TestCase;
 
 class AdapterPatternTest extends TestCase
@@ -33,6 +36,29 @@ class AdapterPatternTest extends TestCase
         $robotAdapter->named('Frank');
         $robotAdapter->move();
         $robotAdapter->attack();
+    }
+
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function test_adapter_interface_has_constructor()
+    {
+        $penguinSam = new Penguin('Sam');
+        $pigeonJeff = new Pigeon('Jeff');
+        $penguinAdapter = new PenguinAdapter(new Penguin('John'));
+
+        dump('The Penguin');
+        $penguinSam->swim();
+        $penguinSam->drink();
+
+        dump('The Pigeon');
+        $pigeonJeff->fly();
+        $pigeonJeff->eat();
+
+        dump('Penguin with Adaptor');
+        $penguinAdapter->fly();
+        $penguinAdapter->eat();
     }
 
 }
